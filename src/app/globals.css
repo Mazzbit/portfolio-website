@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes float-random {
+  0% {
+    transform: translate(var(--mouse-x, 0), var(--mouse-y, 0)) translate(0px, 0px) scale(1);
+  }
+  100% {
+    transform: translate(var(--mouse-x, 0), var(--mouse-y, 0)) translate(
+      calc(-10px + 20px * var(--rand-x, 1)),
+      calc(-10px + 20px * var(--rand-y, 1))
+    ) scale(1.05);
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0ch;
+  }
+  to {
+    width: 11ch;
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #D8B4FE; /* Tailwind's purple-300 */
+  }
+}
+
+.animate-typing {
+  animation: typing 2s steps(11, end) forwards, blink 1s step-end infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  border-right: 2px solid #D8B4FE;
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}

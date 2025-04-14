@@ -4,6 +4,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fade-in 1s ease-out forwards;
+}
+
+
 @keyframes float-random {
   0% {
     transform: translate(var(--mouse-x, 0), var(--mouse-y, 0)) translate(0px, 0px) scale(1);
@@ -21,7 +36,7 @@
     width: 0ch;
   }
   to {
-    width: 11ch;
+    width: 6ch;
   }
 }
 
@@ -35,7 +50,10 @@
 }
 
 .animate-typing {
-  animation: typing 2s steps(11, end) forwards, blink 1s step-end infinite;
+  width: 0ch;
+  animation:
+    typing 1s steps(6, end) forwards 0.3s,
+    blink 1s step-end infinite;
   white-space: nowrap;
   overflow: hidden;
   display: inline-block;

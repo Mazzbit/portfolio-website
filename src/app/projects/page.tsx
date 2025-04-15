@@ -30,8 +30,8 @@ export default function HomePage() {
         </div>
 
         {/* Projects Overview */}
-        <div className="mt-16 flex justify-center gap-6 px-6">
-          <div className="flex flex-col gap-6 w-[350px]">
+        <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-y-10 gap-x-6 px-6 lg:px-56 justify-center">
+          <div className="flex flex-col gap-6">
             <div className="relative group transition-all duration-500 ease-in-out break-inside-avoid">
               <div className="bg-black/30 border border-purple-500 text-white p-6 rounded-2xl shadow-lg overflow-hidden">
                 <div className="max-h-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-40 border-b border-purple-700 -mx-6 -mt-6">
@@ -61,7 +61,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col gap-6 w-[350px]">
+          <div className="flex flex-col gap-6">
             <div className="relative group transition-all duration-500 ease-in-out break-inside-avoid">
               <div className="bg-black/30 border border-purple-500 text-white p-6 rounded-2xl shadow-lg overflow-hidden">
                 <div className="max-h-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-40 border-b border-purple-700 -mx-6 -mt-6">
@@ -91,7 +91,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col gap-6 w-[350px]">
+          <div className="flex flex-col gap-6">
             <div className="relative group transition-all duration-500 ease-in-out break-inside-avoid">
               <div className="bg-black/30 border border-purple-500 text-white p-6 rounded-2xl shadow-lg overflow-hidden">
                 <div className="max-h-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-40 border-b border-purple-700 -mx-6 -mt-6">

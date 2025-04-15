@@ -29,8 +29,8 @@ export default function HomePage() {
             <h1 className="text-6xl font-extrabold text-purple-300 font-mono leading-tight">
               <span className="animate-typing select-none">Martin</span>
             </h1>
-            <p className="text-2xl animate__animated animate__fadeIn [animation-delay:1.25s]">Full Stack Developer · Game Engineer · Creative Technologist</p>
-            <p className="text-lg text-purple-400 animate__animated animate__fadeIn [animation-delay:1.5s] ">Based in Graz, Austria</p>
+            <p className="text-2xl animate__animated animate__fadeIn [animation-delay:1s]">Full Stack Developer · Game Engineer · Creative Technologist</p>
+            <p className="text-lg text-purple-400 animate__animated animate__fadeIn [animation-delay:1.25s] ">Based in Graz, Austria</p>
 
             {/* Call to Action */}
             <div className="flex flex-row items-center justify-start space-x-6 mt-6 animate__animated animate__fadeIn [animation-delay:1.75s]">

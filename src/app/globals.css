@@ -45,14 +45,14 @@
     border-color: transparent;
   }
   50% {
-    border-color: #D8B4FE; /* Tailwind's purple-300 */
+    border-color: #D8B4FE;
   }
 }
 
 .animate-typing {
   width: 0ch;
   animation:
-    typing 1s steps(6, end) forwards 0.3s,
+    typing 0.7s steps(6, end) forwards 0.3s,
     blink 1s step-end infinite;
   white-space: nowrap;
   overflow: hidden;

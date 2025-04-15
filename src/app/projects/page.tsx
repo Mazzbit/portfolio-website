@@ -2,6 +2,55 @@ import Link from "next/link";
 import BokehBackground from "@/components/BokehBackground";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
+
+
+const projects = [
+
+  {
+    title: "portfolio-website",
+    description: "A fully responsive portfolio website built with Next.js, Tailwind CSS, and React.",
+    image: "/portfolio-website.png",
+    tags: ["typescript", "Next.js", "Tailwind", "React"],
+  },
+  {
+    title: "political-live-chat-analysis",
+    description: "A intelligent movie recommendation system - Created movie summaries using Hugging Face models based on subtitles fetched via API.",
+    image: "/mk_logo2.png",
+    tags: ["python", "topic analysis", "sentiment analysis", "huggingface"],
+  },
+  {
+    title: "movie-finder",
+    description: "A intelligent movie recommendation system - Created movie summaries using Hugging Face models based on subtitles fetched via API.",
+    image: "/movie-finder.png",
+    tags: ["python", "huggingface"],
+  },
+  {
+    title: "tik-tok-marble",
+    description: "A 2D Unity game built for TikTok livestreams where viewers join races via chat commands, customize their marbles, and compete in physics-based tracks. Blends real-time audience interaction with fun, randomized gameplay.",
+    image: "/mk_logo2.png",
+    tags: ["Unity", "TikTok", "C#"],
+  },
+  {
+    title: "geo-hunter",
+    description: "GeoHunt is an interactive exploration game developed for iOS, combining real-world exploration with AI-driven object recognition. ",
+    image: "/geo-hunter.png",
+    tags: ["Swift", "Core ML", "MapKit", "iOS"],
+  },
+  {
+    title: "Safari Sprint",
+    description: "Safari Sprint is a fast-paced online party game developed in Unreal Engine as part of the \"Game Design and Development 2\" course at TU Graz.",
+    image: "/safari-sprint.png",
+    tags: ["Unreal Engine", "Blender", "Game Design"],
+  },
+  {
+    title: "Broken Island",
+    description: "Broken Island is a 3D educational adventure developed in Unity as part of the \"Game Design and Development\" course at TU Graz. The game aims to raise awareness about climate change through minigames.",
+    image: "/broken-island.png",
+    tags: ["Unity", "C#", "Game Design"],
+  },
+];
+
+// Important classes for styling
 const TAG = "border border-purple-400/50 text-purple-100 text-sm px-3 py-0.5 rounded-xl bg-purple-400/20 hover:border-purple-400/60 hover:bg-purple-400/30"
 const DESCRIPTION = "mt-2 text-base text-purple-100/80"
 const PROJECT = "text-xl mt-5 font-semibold text-purple-100 font-mono"
@@ -29,7 +78,7 @@ export default function HomePage() {
 
         {/* Projects Heading */}
         <div className="text-center mb-10 mt-10 animate__animated animate__fadeIn">
-          <h2 className="text-5xl font-bold text-purple-400 mb-5">my projects</h2>
+          <h2 className="text-5xl font-mono font-bold text-purple-400 mb-5">my projects</h2>
           <p className="text-lg text-purple-100 max-w-2xl mx-auto">
             Here’s a curated selection of my development work — ranging from web apps to creative experiments. Each project highlights a unique challenge and my approach to solving it.
           </p>
@@ -37,97 +86,31 @@ export default function HomePage() {
 
         {/* Projects Overview */}
         <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-y-10 gap-x-6 px-6 lg:px-56 justify-center animate__animated animate__slideInUp">
-          <div className="flex flex-col gap-6">
-            <div className="relative group transition-all duration-500 ease-in-out break-inside-avoid">
-              <div className={PANEL}>
-                <div className={IMAGE}>
-                  <div className="w-full shadow shadow-purple-200 h-60 bg-cover bg-center" style={{ backgroundImage: "url('/portfolio-website.png')" }} />
-                </div>
-                <h2 className={PROJECT}>portfolio-website</h2>
-                <p className={DESCRIPTION}>A fully responsive portfolio website built with Next.js, Tailwind CSS, and React.</p>
-                <div className="mt-3 flex gap-2 mt-2 flex-wrap">
-                  <span className={TAG}>typescript</span>
-                  <span className={TAG}>Next.js</span>
-                  <span className={TAG}>Tailwind</span>
-                  <span className={TAG}>React</span>
-                </div>
-              </div>
+          {[0, 1, 2].map((col) => (
+            <div key={col} className="flex flex-col gap-6">
+              {projects
+                .filter((_, i) => i % 3 === col)
+                .map((project, index) => (
+                  <div key={index} className="relative group transition-all duration-500 ease-in-out break-inside-avoid">
+                    <div className={PANEL}>
+                      <div className={IMAGE}>
+                        <div
+                          className="w-full shadow shadow-purple-200 h-60 bg-cover bg-center"
+                          style={{ backgroundImage: `url('${project.image}')` }}
+                        />
+                      </div>
+                      <h2 className={PROJECT}>{project.title}</h2>
+                      <p className={DESCRIPTION}>{project.description}</p>
+                      <div className="mt-3 flex gap-2 mt-2 flex-wrap">
+                        {project.tags.map((tag, i) => (
+                          <span key={i} className={TAG}>{tag}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+              ))}
             </div>
-            <div className="relative group transition-all duration-500 ease-in-out break-inside-avoid">
-              <div className={PANEL}>
-                <div className={IMAGE}>
-                  <div className="w-full shadow shadow-purple-200 h-60 bg-cover bg-center" style={{ backgroundImage: "url('/sample.png')" }} />
-                </div>
-                <h2 className={PROJECT}>Project 4</h2>
-                <p className={DESCRIPTION}>Description of project 4.</p>
-                <div className="mt-3 flex gap-2 mt-2 flex-wrap">
-                  <span className={TAG}>python</span>
-                  <span className={TAG}>swift</span>
-                  <span className={TAG}>huggingface</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col gap-6">
-            <div className="relative group transition-all duration-500 ease-in-out break-inside-avoid">
-              <div className={PANEL}>
-                <div className={IMAGE}>
-                  <div className="w-full shadow shadow-purple-200 h-60 bg-cover bg-center" style={{ backgroundImage: "url('/sample.png')" }} />
-                </div>
-                <h2 className={PROJECT}>Project 2</h2>
-                <p className={DESCRIPTION}>Description of project 2.</p>
-                <div className="mt-3 flex gap-2 mt-2 flex-wrap">
-                  <span className={TAG}>python</span>
-                  <span className={TAG}>swift</span>
-                  <span className={TAG}>huggingface</span>
-                </div>
-              </div>
-            </div>
-            <div className="relative group transition-all duration-500 ease-in-out break-inside-avoid">
-              <div className={PANEL}>
-                <div className={IMAGE}>
-                  <div className="w-full shadow shadow-purple-200 h-60 bg-cover bg-center" style={{ backgroundImage: "url('/sample.png')" }} />
-                </div>
-                <h2 className={PROJECT}>Project 5</h2>
-                <p className={DESCRIPTION}>Description of project 5.</p>
-                <div className="mt-3 flex gap-2 mt-2 flex-wrap">
-                  <span className={TAG}>python</span>
-                  <span className={TAG}>swift</span>
-                  <span className={TAG}>huggingface</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col gap-6">
-            <div className="relative group transition-all duration-500 ease-in-out break-inside-avoid">
-              <div className={PANEL}>
-                <div className={IMAGE}>
-                  <div className="w-full shadow shadow-purple-200 h-60 bg-cover bg-center" style={{ backgroundImage: "url('/sample.png')" }} />
-                </div>
-                <h2 className={PROJECT}>Project 3</h2>
-                <p className={DESCRIPTION}>Description of project 3.</p>
-                <div className="mt-3 flex gap-2 mt-2 flex-wrap">
-                  <span className={TAG}>python</span>
-                  <span className={TAG}>swift</span>
-                  <span className={TAG}>huggingface</span>
-                </div>
-              </div>
-            </div>
-            <div className="relative group transition-all duration-500 ease-in-out break-inside-avoid">
-              <div className={PANEL}>
-                <div className={IMAGE}>
-                  <div className="w-full shadow shadow-purple-200 h-60 bg-cover bg-center" style={{ backgroundImage: "url('/sample.png')" }} />
-                </div>
-                <h2 className={PROJECT}>Project 6</h2>
-                <p className={DESCRIPTION}>Description of project 6.</p>
-                <div className="mt-3 flex gap-2 mt-2 flex-wrap">
-                  <span className={TAG}>python</span>
-                  <span className={TAG}>swift</span>
-                  <span className={TAG}>huggingface</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 

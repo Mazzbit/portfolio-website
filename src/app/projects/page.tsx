@@ -10,7 +10,7 @@ const projects = [
     title: "portfolio-website",
     description: "A fully responsive portfolio website built with Next.js, Tailwind CSS, and React.",
     image: "/portfolio-website.png",
-    tags: ["typescript", "Next.js", "Tailwind", "React"],
+    tags: ["Webdev", "Next.js", "Tailwind", "React"],
   },
   {
     title: "political-live-chat-analysis",
@@ -35,6 +35,12 @@ const projects = [
     description: "GeoHunt is an interactive exploration game developed for iOS, combining real-world exploration with AI-driven object recognition. ",
     image: "/geo-hunter.png",
     tags: ["Swift", "Core ML", "MapKit", "iOS"],
+  },
+  {
+    title: "mission-mars",
+    description: "Mission Mars is a 2D space game developed in C++ with SDL2 and OpenGL as part of the Simulation and Animation course at TU Graz.",
+    image: "/mission-mars.png",
+    tags: ["C++", "SDL2", "OpenGL"],
   },
   {
     title: "Safari Sprint",

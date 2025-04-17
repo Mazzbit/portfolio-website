@@ -10,7 +10,7 @@ const projects = [
     title: "portfolio-website",
     description: "A fully responsive portfolio website built with Next.js, Tailwind CSS, and React.",
     image: "/portfolio-website.png",
-    tags: ["Webdev", "Next.js", "Tailwind", "React"],
+    tags: ["Next.js", "Tailwind", "React"],
   },
   {
     title: "political-live-chat-analysis",
@@ -84,7 +84,7 @@ export default function HomePage() {
 
         {/* Projects Heading */}
         <div className="text-center mb-10 mt-10 animate__animated animate__fadeIn">
-          <h2 className="text-5xl font-mono font-bold text-purple-400 mb-5">my projects</h2>
+          <h2 className="animate-typing-projects select-none text-5xl font-mono font-extrabold text-purple-300 mb-10">my projects</h2>
           <p className="text-lg text-purple-100 max-w-2xl mx-auto">
             Here’s a curated selection of my development work — ranging from web apps to creative experiments. Each project highlights a unique challenge and my approach to solving it.
           </p>

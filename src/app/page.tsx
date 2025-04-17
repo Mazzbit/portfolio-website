@@ -27,7 +27,7 @@ export default function HomePage() {
           <section className="text-left max-w-2xl space-y-4 pl-4 lg:ml-[calc(100vw/6)]">
             <p className="text-2xl animate__animated animate__slideInUp">Hi there! I’m</p>
             <h1 className="text-6xl font-extrabold text-purple-300 font-mono leading-tight">
-              <span className="animate-typing select-none">Martin</span>
+              <span className="animate-typing-name select-none">Martin</span>
             </h1>
             <p className="text-2xl animate__animated animate__fadeIn [animation-delay:1s]">Full Stack Developer · Game Engineer · Creative Technologist</p>
             <p className="text-lg text-purple-400 animate__animated animate__fadeIn [animation-delay:1.25s] ">Based in Graz, Austria</p>

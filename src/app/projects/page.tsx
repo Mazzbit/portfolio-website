@@ -83,15 +83,15 @@ export default function HomePage() {
         </nav>
 
         {/* Projects Heading */}
-        <div className="text-center mb-10 mt-10 animate__animated animate__fadeIn">
-          <h2 className="animate-typing-projects select-none text-5xl font-mono font-extrabold text-purple-300 mb-10">my projects</h2>
-          <p className="text-lg text-purple-100 max-w-2xl mx-auto">
+        <div className="text-center mb-10 mt-10">
+          <h2 className="animate-typing-projects select-none text-5xl leading-normal font-mono font-extrabold text-purple-300 mb-10">my projects</h2>
+          <p className="text-lg text-purple-100 max-w-2xl mx-auto animate__animated animate__fadeIn [animation-delay:0.5s]">
             Here’s a curated selection of my development work — ranging from web apps to creative experiments. Each project highlights a unique challenge and my approach to solving it.
           </p>
         </div>
 
         {/* Projects Overview */}
-        <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-y-10 gap-x-6 px-6 lg:px-56 justify-center animate__animated animate__slideInUp">
+        <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-y-10 gap-x-6 px-6 lg:px-56 justify-center animate__animated animate__slideInUp [animation-delay:0.6s]">
           {[0, 1, 2].map((col) => (
             <div key={col} className="flex flex-col gap-6">
               {projects

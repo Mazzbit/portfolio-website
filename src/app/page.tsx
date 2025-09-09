@@ -13,11 +13,11 @@ export default function HomePage() {
       </div>
 
       {/* Content */}
-      <div className="relative z-20 text-purple-100 w-full flex-1 flex flex-col">
+      <div className="relative z-20 text-purple-100 w-full flex-1 flex flex-col items-center">
         {/* Navigation */}
         <nav className="text-center text-xl font-bold space-x-6 mb-12">
           <Link href="/" className="hover:underline hover:scale-125 decoration-purple-300 underline-offset-4">home</Link>
-          <Link href="/about" className="hover:underline decoration-purple-300 underline-offset-4">about me</Link>
+          <Link href="/about" className="hover:underline decoration-purple-300 underline-offset-4">about</Link>
           <Link href="/projects" className="hover:underline decoration-purple-300 underline-offset-4">projects</Link>
           <Link href="/contact" className="hover:underline decoration-purple-300 underline-offset-4">contact</Link>
         </nav>

@@ -16,18 +16,25 @@ export default function AboutPage() {
       <div className="relative z-20 text-purple-100 w-full flex-1 flex flex-col items-center">
         {/* Navigation */}
         <nav className="text-center text-xl font-bold space-x-6 mb-12">
-          <Link href="/" className="hover:underline decoration-purple-300 underline-offset-4">home</Link>
-          <Link href="/about" className="hover:underline decoration-purple-300 underline-offset-4 hover:scale-125">about me</Link>
+          <Link href="/" className="hover:underline hover:scale-125 decoration-purple-300 underline-offset-4">home</Link>
+          <Link href="/about" className="hover:underline decoration-purple-300 underline-offset-4">about</Link>
           <Link href="/projects" className="hover:underline decoration-purple-300 underline-offset-4">projects</Link>
           <Link href="/contact" className="hover:underline decoration-purple-300 underline-offset-4">contact</Link>
         </nav>
 
+        {/* Text */}
+        <div className="mt-12 max-w-2xl text-left px-20 mt-10">
+          <h1 className="text-5xl font-extrabold text-purple-300 font-mono leading-tight animate-typing-about select-none ">
+              about me
+          </h1>
+        </div>
+
         {/* About */}
-        <section className="mt-12 w-full flex flex-col items-center animate__animated animate__fadeInUp">
+        <section className=" w-full flex flex-row items-center justify-center">
           {/* Portrait */}
-          <div className="flex items-center justify-center w-56 h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden ring-4 ring-purple-400/40 shadow-2xl shadow-purple-900/50">
+          <div className="flex items-center justify-center w-56 h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden ring-4 ring-purple-400/40 shadow-2xl shadow-purple-900/50 animate__animated animate__fadeIn [animation-delay:0.4s]">
             <Image
-              src="/me.jpg"
+              src="/portrait.jpg"
               alt="Portrait of Martin Klug"
               width={512}
               height={512}
@@ -36,16 +43,13 @@ export default function AboutPage() {
             />
           </div>
 
-          {/* Text */}
-          <div className="max-w-2xl text-left px-2 mt-10">
-            <h1 className="text-5xl font-extrabold text-purple-300 font-mono leading-tight animate__animated animate__slideInUp">
-              About me
-            </h1>
-            <p className="mt-4 text-lg text-purple-200/90 animate__animated animate__fadeIn [animation-delay:0.5s]">
+
+            <div className="max-w-2xl text-left px-20 mt-10 animate__animated animate__fadeInUp [animation-delay:0.5s]">
+            <p className="mt-4 text-lg text-purple-200/90">
               I’m Martin — a Full‑Stack Developer, Game Engineer, and Creative Technologist based in Graz, Austria. I love building playful, polished
               digital experiences, from real‑time interactive prototypes to production web apps.
             </p>
-            <p className="mt-3 text-purple-300/80 animate__animated animate__fadeIn [animation-delay:0.8s]">
+            <p className="mt-3 text-purple-300/80">
               Tech I enjoy: TypeScript, React/Next.js, Tailwind, Node, Python, Unity, and shader tinkering. When I’m not coding, you’ll probably find me
               exploring nature, sketching new game ideas, or chasing the perfect lofi mix.
             </p>

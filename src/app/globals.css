@@ -58,6 +58,15 @@
   }
 }
 
+@keyframes typing-about {
+  from {
+    width: 0ch;
+  }
+  to {
+    width: 8ch;
+  }
+}
+
 .animate-typing-name {
   width: 0ch;
   animation:
@@ -72,7 +81,7 @@
 .animate-typing-projects {
   width: 0ch;
   animation:
-    typing-projects 0.7s steps(11, end) forwards 0.3s,
+    typing-projects 0.7s steps(11, end) forwards 0.0s,
     blink 1s step-end infinite;
   white-space: nowrap;
   overflow: hidden;
@@ -82,4 +91,16 @@
 
 .animate-blink {
   animation: blink 1s step-end infinite;
+}
+
+
+.animate-typing-about {
+  width: 0ch;
+  animation:
+    typing-about 0.7s steps(8, end) forwards 0.0s,
+    blink 1s step-end infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  border-right: 2px solid #D8B4FE;
 }

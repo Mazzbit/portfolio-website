@@ -5,53 +5,64 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 
 const projects = [
-
+    {
+    title: "lofi-equalizer",
+    description: "An audio-reactive lofi visualizer that automatically creates videos, featuring a circular equalizer over a stylized Fuji-sunset scene with randomized per-song color palettes.",
+    image: "/project_images/lofi-equalizer.png",
+    tags: ["python", "NumPy", "MoviePy"],
+  },
+  {
+    title: "postcard-prism",
+    description: "An interactive visual analytics system enables users to explore postcards through multiple layers of visualization, including color clustering, topic clustering, and detailed inspection.",
+    image: "/project_images/postcard-prism.png",
+    tags: ["python", "MiniSom", "TypeScript", "Tailwind", "D3"],
+  },
   {
     title: "portfolio-website",
     description: "A fully responsive portfolio website built with Next.js, Tailwind CSS, and React.",
-    image: "/portfolio-website.png",
-    tags: ["Next.js", "Tailwind", "React"],
+    image: "/project_images/portfolio-website.png",
+    tags: ["Next.js", "Tailwind", "React", "CSS"],
   },
   {
     title: "political-live-chat-analysis",
     description: "A intelligent movie recommendation system - Created movie summaries using Hugging Face models based on subtitles fetched via API.",
-    image: "/mk_logo2.png",
+    image: "/project_images/political-twitch.png",
     tags: ["python", "topic analysis", "sentiment analysis", "huggingface"],
   },
   {
     title: "movie-finder",
     description: "A intelligent movie recommendation system - Created movie summaries using Hugging Face models based on subtitles fetched via API.",
-    image: "/movie-finder.png",
+    image: "/project_images/movie-finder.png",
     tags: ["python", "huggingface"],
   },
   {
     title: "tik-tok-marble",
     description: "A 2D Unity game built for TikTok livestreams where viewers join races via chat commands, customize their marbles, and compete in physics-based tracks. Blends real-time audience interaction with fun, randomized gameplay.",
-    image: "/mk_logo2.png",
+    image: "/project_images/marble-race.png",
     tags: ["Unity", "TikTok", "C#"],
   },
   {
     title: "geo-hunter",
     description: "GeoHunt is an interactive exploration game developed for iOS, combining real-world exploration with AI-driven object recognition. ",
-    image: "/geo-hunter.png",
+    image: "/project_images/geo-hunter.png",
     tags: ["Swift", "Core ML", "MapKit", "iOS"],
   },
   {
     title: "mission-mars",
     description: "Mission Mars is a 2D space game developed in C++ with SDL2 and OpenGL as part of the Simulation and Animation course at TU Graz.",
-    image: "/mission-mars.png",
+    image: "/project_images/mission-mars.png",
     tags: ["C++", "SDL2", "OpenGL"],
   },
   {
     title: "Safari Sprint",
     description: "Safari Sprint is a fast-paced online party game developed in Unreal Engine as part of the \"Game Design and Development 2\" course at TU Graz.",
-    image: "/safari-sprint.png",
+    image: "/project_images/safari-sprint.png",
     tags: ["Unreal Engine", "Blender", "Game Design"],
   },
   {
     title: "Broken Island",
     description: "Broken Island is a 3D educational adventure developed in Unity as part of the \"Game Design and Development\" course at TU Graz. The game aims to raise awareness about climate change through minigames.",
-    image: "/broken-island.png",
+    image: "/project_images/broken-island.png",
     tags: ["Unity", "C#", "Game Design"],
   },
 ];
@@ -77,7 +88,7 @@ export default function HomePage() {
         {/* Navigation */}
         <nav className="text-center text-xl font-bold space-x-6 mb-12">
           <Link href="/" className="hover:underline hover:scale-125 decoration-purple-300 underline-offset-4">home</Link>
-          <Link href="/about" className="hover:underline decoration-purple-300 underline-offset-4">about</Link>
+          <Link href="/about" className="hover:underline decoration-purple-300 underline-offset-4">about me</Link>
           <Link href="/projects" className="hover:underline decoration-purple-300 underline-offset-4">projects</Link>
           <Link href="/contact" className="hover:underline decoration-purple-300 underline-offset-4">contact</Link>
         </nav>
@@ -91,9 +102,9 @@ export default function HomePage() {
         </div>
 
         {/* Projects Overview */}
-        <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-y-10 gap-x-6 px-6 lg:px-56 justify-center animate__animated animate__slideInUp [animation-delay:0.6s]">
+        <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-y-10 gap-x-6 px-6 lg:px-56 justify-center animate__animated animate__fadeIn [animation-delay:0.2s]">
           {[0, 1, 2].map((col) => (
-            <div key={col} className="flex flex-col gap-6">
+            <div key={col} className="flex flex-col gap-6 animate__animated animate__slideInUp">
               {projects
                 .filter((_, i) => i % 3 === col)
                 .map((project, index) => (
@@ -126,13 +137,13 @@ export default function HomePage() {
       <footer className="mb-0 text-center text-sm text-purple-200">
         {/* Social Links */}
         <section className="mb-4 flex justify-center mt-12 space-x-6 text-2xl">
-              <a href="mailto:martin@example.com" className="hover:text-purple-400 transition" aria-label="Email">
+              <a href="mailto:klug.martin.mk@gmail.com" className="hover:text-purple-400 transition" aria-label="Email">
                 <FaEnvelope />
               </a>
-              <a href="https://github.com/martinklug" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition" aria-label="GitHub">
+              <a href="https://github.com/mazzbit" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition" aria-label="GitHub">
                 <FaGithub />
               </a>
-              <a href="https://linkedin.com/in/martinklug" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/martin-tobias-klug-0a68a421a/" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition" aria-label="LinkedIn">
                 <FaLinkedin />
               </a>
             </section>

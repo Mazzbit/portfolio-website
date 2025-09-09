@@ -17,7 +17,7 @@ export default function HomePage() {
         {/* Navigation */}
         <nav className="text-center text-xl font-bold space-x-6 mb-12">
           <Link href="/" className="hover:underline hover:scale-125 decoration-purple-300 underline-offset-4">home</Link>
-          <Link href="/about" className="hover:underline decoration-purple-300 underline-offset-4">about</Link>
+          <Link href="/about" className="hover:underline decoration-purple-300 underline-offset-4">about me</Link>
           <Link href="/projects" className="hover:underline decoration-purple-300 underline-offset-4">projects</Link>
           <Link href="/contact" className="hover:underline decoration-purple-300 underline-offset-4">contact</Link>
         </nav>
@@ -57,13 +57,13 @@ export default function HomePage() {
       <footer className="mb-0 text-center text-sm text-purple-200 animate__animated animate__fadeIn [animation-delay:2s]">
         {/* Social Links */}
         <section className="mb-4 flex justify-center mt-12 space-x-6 text-2xl">
-              <a href="mailto:martin@example.com" className="hover:text-purple-400 transition" aria-label="Email">
+              <a href="mailto:klug.martin.mk@gmail.com" className="hover:text-purple-400 transition" aria-label="Email">
                 <FaEnvelope />
               </a>
-              <a href="https://github.com/martinklug" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition" aria-label="GitHub">
+              <a href="https://github.com/mazzbit" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition" aria-label="GitHub">
                 <FaGithub />
               </a>
-              <a href="https://linkedin.com/in/martinklug" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/martin-tobias-klug-0a68a421a/" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition" aria-label="LinkedIn">
                 <FaLinkedin />
               </a>
             </section>

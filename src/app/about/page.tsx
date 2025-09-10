@@ -25,16 +25,16 @@ export default function AboutPage() {
         </nav>
 
         {/* Text */}
-        <div className="mt-12 max-w-2xl text-left px-4 sm:px-10">
+        <div className="mt-6 max-w-2xl text-left px-4 sm:px-10">
           <h1 className="text-5xl font-extrabold text-purple-300 font-mono leading-tight animate-typing-about select-none ">
             about me
           </h1>
         </div>
 
         {/* About */}
-        <section className="w-full flex flex-col lg:flex-row items-center justify-center lg:space-x-18 mt-10">
+        <section className="w-full flex flex-col lg:flex-row items-center justify-center lg:space-x-6">
           {/* Portrait */}
-          <div className="flex items-center justify-center w-40 h-40 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden ring-4 ring-purple-400/40 shadow-2xl shadow-purple-900/50 animate__animated animate__fadeIn [animation-delay:0.4s]">
+          <div className="flex items-center justify-center w-30 h-30 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden ring-4 ring-purple-400/40 shadow-2xl shadow-purple-900/50 animate__animated animate__fadeIn [animation-delay:0.4s]">
             <Image
               src="/portrait.jpg"
               alt="Portrait of Martin Klug"
@@ -46,7 +46,7 @@ export default function AboutPage() {
           </div>
 
           {/* Text + Buttons */}
-          <div className="max-w-2xl text-left mt-6 lg:mt-10 px-4 sm:px-10 animate__animated animate__fadeInUp [animation-delay:0.5s]">
+          <div className="max-w-2xl text-left mt-0 lg:mt-10 px-4 sm:px-10 animate__animated animate__fadeInUp [animation-delay:0.5s]">
             <p className="mt-6 text-lg text-purple-200/90">
             I’m Martin — a Master’s student in Computer Science at TU Graz, focusing on Games Engineering and Interactive & Visual Information Systems. 
             I enjoy building playful, polished digital experiences that blend creativity with technology.
@@ -81,11 +81,11 @@ export default function AboutPage() {
       </div>
 
       {/* Timeline */}
-      <section className="mt-20 animate__animated animate__fadeInUp animate__fadeIn [animation-delay:0.5s]">
+      <section className="mt-6 animate__animated animate__fadeInUp animate__fadeIn [animation-delay:0.5s]">
         <MyJourneyTimeline />
       </section>
 
-        <footer className="mb-0 text-center text-sm text-purple-200">
+        <footer className="text-center text-sm text-purple-200">
         {/* Social Links */}
         <section className="mb-4 flex justify-center mt-12 space-x-6 text-2xl">
             <a href="mailto:klug.martin.mk@gmail.com" className="hover:text-purple-400 transition" aria-label="Email">

@@ -78,8 +78,8 @@ export default function HomePage() {
   return (
     <main className="relative min-h-screen flex flex-col justify-between font-hand px-6 py-10 select-none">
       {/* Background */}
-      <div className="absolute inset-0 z-[-10] bg-gradient-to-b from-[#0a0014] to-[#1b004b]" />
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      <div className="fixed inset-0 z-[-10] bg-gradient-to-b from-[#0a0014] to-[#1b004b]" />
+      <div className="fixed inset-0 z-0 pointer-events-none">
         <BokehBackground />
       </div>
 

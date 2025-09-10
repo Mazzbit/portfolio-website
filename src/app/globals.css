@@ -67,6 +67,23 @@
   }
 }
 
+
+/* Chrome, Safari, Edge */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox */
+body {
+  scrollbar-width: none;
+}
+
+/* IE/alte Edge */
+body {
+  -ms-overflow-style: none;
+}
+
+
 .animate-typing-name {
   width: 0ch;
   animation:

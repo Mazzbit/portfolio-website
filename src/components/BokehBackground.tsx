@@ -1,109 +1,143 @@
 "use client";
-
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 
 type Circle = {
   el: HTMLDivElement | null;
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
-  size: number;
-  hue: number;
-  lightness: number;
-  opacity: number;
+  x: number; y: number; vx: number; vy: number;
+  size: number; hue: number; lightness: number; opacity: number;
+  tvx: number; tvy: number; lerp: number;
 };
 
-export default function BokehPhysicsBackground() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const mouse = useRef({ x: 0, y: 0 });
-  const [circles, setCircles] = useState<Circle[]>([]);
+const COUNT = 30;
+let PERSISTED: Omit<Circle, "el">[] | null = null;
 
-  // Init after mount (window-safe)
+export default function BokehBackground() {
+  const circlesRef = useRef<Circle[]>([]);
+  const mouseRef = useRef({ x: -9999, y: -9999 }); // << Mauspos
+  const rafRef = useRef<number>();
+  const pathname = usePathname();
+  const [ready, setReady] = useState(false);
+
+  const makeCircle = (): Circle => {
+    const size = 150 + Math.random() * 100;
+    const hue = 240 + Math.random() * 20;
+    const lightness = 60 + Math.random() * 10;
+    const opacity = 0.08 + Math.random() * 0.1;
+    const x = Math.random() * innerWidth;
+    const y = Math.random() * innerHeight;
+    const ang = Math.random() * Math.PI * 2;
+    const speed = 0.3 + Math.random() * 0.5;
+    return { el: null, x, y, vx: Math.cos(ang)*speed, vy: Math.sin(ang)*speed,
+      size, hue, lightness, opacity, tvx: 0, tvy: 0, lerp: 1 };
+  };
+
+  // Init
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    const newCircles: Circle[] = Array.from({ length: 30 }).map(() => {
-      const size = 150 + Math.random() * 100;
-      const hue = 240 + Math.random() * 20;
-      const lightness = 60 + Math.random() * 10;
-      const opacity = 0.08 + Math.random() * 0.1;
-      const x = Math.random() * window.innerWidth;
-      const y = Math.random() * window.innerHeight;
-      const angle = Math.random() * Math.PI * 2;
-      const speed = 0.3 + Math.random() * 0.5;
-      const vx = Math.cos(angle) * speed;
-      const vy = Math.sin(angle) * speed;
-      return { el: null, x, y, vx, vy, size, hue, lightness, opacity };
-    });
+    circlesRef.current =
+      (PERSISTED
+        ? PERSISTED.map(c => ({ el: null, ...c }))
+        : Array.from({ length: COUNT }, makeCircle));
 
-    setCircles(newCircles);
-  }, []);
+    setReady(true);
 
-  // Bewegung und Interaktion
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      mouse.current = { x: e.clientX, y: e.clientY };
-    };
+    // Maus-Events
+    const onMove = (e: MouseEvent) => (mouseRef.current = { x: e.clientX, y: e.clientY });
+    const onLeave = () => (mouseRef.current = { x: -9999, y: -9999 });
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("mouseleave", onLeave);
 
-    window.addEventListener("mousemove", handleMouseMove);
-
+    // Animation
     const animate = () => {
-      setCircles((prev) =>
-        prev.map((c) => {
-          const dx = mouse.current.x - c.x;
-          const dy = mouse.current.y - c.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
+      const m = mouseRef.current;
 
-          // Mausabstoßung
-          if (dist < 200) {
-            const angle = Math.atan2(dy, dx);
-            const force = Math.min(1000 / (dist * dist + 50), 1.5);
-            c.vx -= Math.cos(angle) * force;
-            c.vy -= Math.sin(angle) * force;
-          }
+      for (const c of circlesRef.current) {
+        // sanft zu Ziel-Velocities blenden
+        if (c.lerp < 1) {
+          const t = 0.06;
+          c.vx += (c.tvx - c.vx) * t;
+          c.vy += (c.tvy - c.vy) * t;
+          c.lerp = Math.min(1, c.lerp + 0.06);
+        }
 
-          // Bewegung
-          c.vx *= 0.995;
-          c.vy *= 0.995;
-          c.x += c.vx;
-          c.y += c.vy;
+        // Mausabstoßung
+        const dx = m.x - c.x;
+        const dy = m.y - c.y;
+        const distSq = dx*dx + dy*dy;
+        const R = 200;                    // Radius
+        if (distSq > 0 && distSq < R*R) {
+          const dist = Math.sqrt(distSq);
+          const nx = dx / dist, ny = dy / dist;
+          const force = Math.min(1000 / (distSq + 50), 1.5); // wie bei dir
+          c.vx -= nx * force;
+          c.vy -= ny * force;
+        }
 
-          // Bildschirmränder
-          const buffer = 300;
-          if (c.x < -buffer || c.x > window.innerWidth + buffer) c.vx *= -1;
-          if (c.y < -buffer || c.y > window.innerHeight + buffer) c.vy *= -1;
+        // Bewegung + Dämpfung
+        c.vx *= 0.99; c.vy *= 0.99;
+        c.x += c.vx;   c.y += c.vy;
 
-          if (c.el) {
-            c.el.style.transform = `translate(${c.x}px, ${c.y}px)`;
-          }
+        // Bildschirmränder
+        const B = 300;
+        if (c.x < -B || c.x > innerWidth  + B) c.vx *= -1;
+        if (c.y < -B || c.y > innerHeight + B) c.vy *= -1;
 
-          return c;
-        })
-      );
+        if (c.el) c.el.style.transform = `translate(${c.x}px, ${c.y}px)`;
+      }
 
-      requestAnimationFrame(animate);
+      rafRef.current = requestAnimationFrame(animate);
     };
-
-    animate();
+    rafRef.current = requestAnimationFrame(animate);
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("mouseleave", onLeave);
+      PERSISTED = circlesRef.current.map(({ el, ...rest }) => rest);
     };
   }, []);
 
+  // Bei Page-Wechsel: sanfter, zufälliger Boost
+  useEffect(() => {
+    for (const c of circlesRef.current) {
+      // zufälliger Winkel
+      const angle = Math.random() * Math.PI * 2;
+
+      // kleine, zufällige Boost-Stärke
+      const boost = 3 + Math.random() * 2; // ~3–5 px/frame
+
+      // kurz in die Richtung stoßen
+      c.vx += Math.cos(angle) * boost;
+      c.vy += Math.sin(angle) * boost;
+
+      // danach wie gewohnt neue Zielgeschwindigkeit setzen
+      const speed = 0.3 + Math.random() * 0.5;
+      const ang = Math.random() * Math.PI * 2;
+      c.tvx = Math.cos(ang) * speed;
+      c.tvy = Math.sin(ang) * speed;
+      c.lerp = 0; // blendet sanft ein
+    }
+  }, [pathname]);
+
+
+
+
+  if (!ready) return null;
+
   return (
-    <div ref={containerRef} className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-      {circles.map((circle, i) => (
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+      {circlesRef.current.map((c, i) => (
         <div
           key={i}
-          className="bokeh-circle absolute rounded-full"
-          ref={(el) => (circles[i].el = el)}
+          ref={(el) => (circlesRef.current[i].el = el)}
+          className="absolute rounded-full"
           style={{
-            width: `${circle.size}px`,
-            height: `${circle.size}px`,
-            backgroundColor: `hsla(${circle.hue}, 100%, ${circle.lightness}%, ${circle.opacity})`,
-            transform: `translate(${circle.x}px, ${circle.y}px)`,
+            width: c.size,
+            height: c.size,
+            backgroundColor: `hsla(${c.hue},100%,${c.lightness}%,${c.opacity})`,
+            transform: `translate(${c.x}px, ${c.y}px)`,
             filter: "blur(10px)",
             willChange: "transform",
           }}

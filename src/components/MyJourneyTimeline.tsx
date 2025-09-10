@@ -172,7 +172,7 @@ export default function MyJourneyTimeline() {
             <div
               key={i}
               data-index={i}
-              ref={(el) => (rowRefsMobile.current[i] = el)}
+              ref={(el) => { rowRefsMobile.current[i] = el; }}
               className="flex items-center gap-4 mb-9"
               style={{ minHeight: MOBILE.rowH }}
             >
@@ -258,7 +258,7 @@ export default function MyJourneyTimeline() {
             <div
               key={i}
               data-index={i}
-              ref={(el) => (rowRefsDesktop.current[i] = el)}
+              ref={(el) => { rowRefsDesktop.current[i] = el; }}
               className="grid gap-x-8"
               style={{ height: DESKTOP.rowH, gridTemplateColumns: `1fr ${DESKTOP.railW}px 1fr` }}
             >

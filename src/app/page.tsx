@@ -19,7 +19,7 @@ export default function HomePage() {
           <Link href="/" className="hover:underline hover:scale-125 decoration-purple-300 underline-offset-4">home</Link>
           <Link href="/about" className="hover:underline decoration-purple-300 underline-offset-4">about</Link>
           <Link href="/projects" className="hover:underline decoration-purple-300 underline-offset-4">projects</Link>
-          <Link href="/contact" className="hover:underline decoration-purple-300 underline-offset-4">contact</Link>
+          {/*<Link href="/contact" className="hover:underline decoration-purple-300 underline-offset-4">contact</Link>*/}
         </nav>
 
         {/* Intro */}
@@ -35,10 +35,10 @@ export default function HomePage() {
             {/* Call to Action */}
             <div className="flex flex-row items-center justify-start space-x-6 mt-6 animate__animated animate__fadeIn [animation-delay:1.75s]">
               <Link
-                href="/contact"
+                href="/about"
                 className="inline-block px-8 py-4 text-xl bg-purple-600 text-white rounded-full shadow-lg hover:bg-purple-700 transition duration-300 ease-in-out"
               >
-                Contact me
+                About me
               </Link>
 
               <Link
@@ -53,23 +53,33 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="mb-0 text-center text-sm text-purple-200 animate__animated animate__fadeIn [animation-delay:2s]">
+      <footer className="mb-0 text-center text-sm text-purple-200">
         {/* Social Links */}
         <section className="mb-4 flex justify-center mt-12 space-x-6 text-2xl">
-              <a href="mailto:klug.martin.mk@gmail.com" className="hover:text-purple-400 transition" aria-label="Email">
-                <FaEnvelope />
-              </a>
-              <a href="https://github.com/mazzbit" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition" aria-label="GitHub">
-                <FaGithub />
-              </a>
-              <a href="https://www.linkedin.com/in/martin-tobias-klug-0a68a421a/" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition" aria-label="LinkedIn">
-                <FaLinkedin />
-              </a>
-            </section>
+            <a href="mailto:klug.martin.mk@gmail.com" className="hover:text-purple-400 transition" aria-label="Email">
+            <FaEnvelope />
+            </a>
+            <a href="https://github.com/mazzbit" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition" aria-label="GitHub">
+            <FaGithub />
+            </a>
+            <a href="https://www.linkedin.com/in/martin-tobias-klug-0a68a421a/" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition" aria-label="LinkedIn">
+            <FaLinkedin />
+            </a>
+        </section>
+
+        {/* Impressum & Datenschutz */}
+        <div className="mb-4 flex justify-center space-x-6 text-sm">
+            <Link href="/legal" className="hover:underline hover:text-purple-400">
+            Impressum
+            </Link>
+            <Link href="/legal" className="hover:underline hover:text-purple-400">
+            Datenschutz
+            </Link>
+        </div>
+
         <p>Made with ♥ by Martin Klug</p>
         <p>© 2025</p>
-      </footer>
+        </footer>
     </main>
   );
 }

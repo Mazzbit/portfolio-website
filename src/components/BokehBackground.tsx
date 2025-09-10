@@ -15,7 +15,7 @@ let PERSISTED: Omit<Circle, "el">[] | null = null;
 export default function BokehBackground() {
   const circlesRef = useRef<Circle[]>([]);
   const mouseRef = useRef({ x: -9999, y: -9999 }); // << Mauspos
-  const rafRef = useRef<number>();
+  const rafRef = useRef<number | null>(null); 
   const pathname = usePathname();
   const [ready, setReady] = useState(false);
 
@@ -131,7 +131,7 @@ export default function BokehBackground() {
       {circlesRef.current.map((c, i) => (
         <div
           key={i}
-          ref={(el) => (circlesRef.current[i].el = el)}
+          ref={(el) => { circlesRef.current[i].el = el; }}
           className="absolute rounded-full"
           style={{
             width: c.size,

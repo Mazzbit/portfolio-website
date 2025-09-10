@@ -74,6 +74,14 @@ const PROJECT = "text-xl mt-5 font-semibold text-purple-100 font-mono"
 const IMAGE = "max-h-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-40 -mx-6 -mt-6"
 const PANEL = "bg-black/40 text-white p-6 rounded-3xl shadow-lg overflow-hidden transition-transform duration-250 ease-in-out hover:scale-105 active:scale-95"
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Projects | Martin Klug",
+  description:
+    "Explore projects by Martin Klug: Full Stack development, game engineering, interactive systems, and creative prototypes.",
+};
+
 export default function HomePage() {
   return (
     <main className="relative min-h-screen flex flex-col justify-between font-hand px-6 py-10 select-none">

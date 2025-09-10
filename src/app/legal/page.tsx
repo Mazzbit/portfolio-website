@@ -5,6 +5,16 @@ import Link from "next/link";
 import "animate.css";
 import BokehBackground from "@/components/BokehBackground";
 
+// app/legal/page.tsx
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Legal Notice & Privacy Policy | Martin Klug",
+  description:
+    "Legal notice and privacy policy of Martin Klug. Information in accordance with GDPR and Austrian E-Commerce Act (ECG).",
+};
+
+
 export default function LegalPage() {
   return (
     <main className="relative min-h-screen flex flex-col justify-between font-hand px-6 py-10 select-none">

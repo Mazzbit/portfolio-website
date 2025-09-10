@@ -5,6 +5,14 @@ import BokehBackground from "@/components/BokehBackground";
 import MyJourneyTimeline from "@/components/MyJourneyTimeline";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About | Martin Klug",
+  description:
+    "About Martin Klug, Master's student in Computer Science at TU Graz, focusing on Games Engineering and Interactive & Visual Information Systems.",
+};
+
 export default function AboutPage() {
   return (
     <main className="relative min-h-screen flex flex-col justify-between font-hand px-6 py-10 select-none">

@@ -13,13 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Martin Klug",
+  title: "Martin Klug | Personal Website",
   description: "Personal Website of Martin Klug, a Full Stack Developer and Game Engineer.",
   icons: {
     icon: [
-      { url: "/mk_logo2.png", type: "image/png", sizes: "32x32" },
-      { url: "/mk_logo2.png", type: "image/png", sizes: "192x192" },
-      { url: "/mk_logo2.png", rel: "apple-touch-icon", sizes: "180x180" }
+      { url: "/mk.png", type: "image/png", sizes: "32x32" },
+      { url: "/mk.png", type: "image/png", sizes: "192x192" },
+      { url: "/mk.png", rel: "apple-touch-icon", sizes: "180x180" }
     ]
   }
 };

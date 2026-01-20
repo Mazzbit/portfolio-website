@@ -11,6 +11,7 @@ type Item = {
 };
 
 const ITEMS: Item[] = [
+  { icon: "💻", title: "Junior Researcher", org: "Know Center Research GmbH", time: "2026 – present"},
   { icon: "🎓", title: "Master in Computer Science", org: "TU Graz", time: "2023 – present" },
   {
     icon: "💼", title: "Internships at ams-OSRAM", time: "2015 – 2022",
